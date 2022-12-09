@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='c_style.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Team A Model</title>
+</head>
+<body>
+    <div class="container">
+        <header>Credit Risk Predictor</header>
+        <br><br>
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="form first">
+                <div class="details personal">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>BidsPortfolioManager</label>
+                            <input type="text" name="LP_CustomerPrincipalPayments" placeholder="No. of investment offers made by Porfolio Managers" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>BidsApi</label>
+                            <input type="text" name="LoanCurrentDaysDelinquent" placeholder="No. of offers made through API" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>BidsManual</label>
+                            <input type="text" name="LoanMonthsSinceOrigination" placeholder="No. of offers made manually" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>LanguageCode</label>
+                            <select required="required" name="BorrowerState_NC">
+                                <option>Estonian</option>
+                                <option>Finnish</option>
+                                <option>Spanish</option>
+                                <option>Russian</option>
+                                <option>English</option>
+                                <option>Slovakian</option>
+                                <option>German</option>
+                                
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Age</label>
+                            <input type="text" name="MonthlyLoanPayment" placeholder="Enter your age" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Interest</label>
+                            <input type="text" name="LoanOriginalAmount" placeholder="Max Interest rate accepted in application" required="required"/>
+                        </div>
+                        <div class="input-field">
+                            <label>Loan Duration</label>
+                            <input type="text" name="BorrowerAPR" placeholder="in Months" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Education</label>
+                            <select required="required" name="BorrowerState_NC">
+                                <option>Secondary Education</option>
+                                <option>Higher Education</option>
+                                <option>Vocational Education</option>
+                                <option>Primary Education</option>
+                                <option>Basic Education</option>
+                                <option>Not Set</option>
+                                
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>MaritalStatus</label>
+                            <select required="required" name="after_July2009">
+                                <option>Not Specified</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Cohabitant</option>
+                                <option>Divorced</option>
+                                <option>Widow</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Employment Duration (with current employer)</label>
+                            <select required="required" name="CreditGrade_Not_Applicable">
+                                <option>More than 5 years</option>
+                                <option>Up to 5 years</option>
+                                <option>Up to 1 year</option>
+                                <option>Up to 2 years</option>
+                                <option>Up to 3 years</option>
+                                <option>Retiree</option>
+                                <option>Up to 4 years</option>
+                                <option>Other</option>
+                                <option>Trial Period</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Home Ownership Type</label>
+                            <select required="required" name="CreditGrade_Not_Applicable">
+                                <option>Owner</option>
+                                <option>Tenant, Pre-Furnished Property</option>
+                                <option>Living with Parents</option>
+                                <option>Mortgage</option>
+                                <option>Tenant, Unfurnished Property</option>
+                                <option>Other</option>
+                                <option>Joint Ownership</option>
+                                <option>Joint Tenant</option>
+                                <option>Council House</option>
+                                <option>Owner with Encumbrance</option>
+                                <option>Not Specified</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Total Income</label>
+                            <input type="text" name="Investors" placeholder="Enter total income" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Existing Liabilities</label>
+                            <input type="text" name="Investors" placeholder="Enter any existing liabilities" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Total Liabilities</label>
+                            <input type="text" name="Investors" placeholder="Total amount of liabilities" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Debt To Income</label>
+                            <input type="text" name="Investors" placeholder="Amount of income that goes into loan payment" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Free Cash</label>
+                            <input type="text" name="AvailableBankcardCredit" placeholder="Enter income after monthly liabilities" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Monthly Payment Day</label>
+                            <input type="text" name="AvailableBankcardCredit" placeholder="Enter the day of the month the loan payments are scheduled" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Rating - given by Bondora Rating model</label>
+                            <select required="required" name="CreditGrade_Not_Applicable">
+                                <option>F</option>
+                                <option>E</option>
+                                <option>HR</option>
+                                <option>D</option>
+                                <option>C</option>
+                                <option>B</option>
+                                <option>A</option>
+                                <option>AA</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Previous Repayments Before Loan</label>
+                            <input type="text" name="Recommendations" placeholder="How much repaid before the loan" required="required" />
+                        </div>
+                        <div class="input-field">
+                            <label>Amount</label>
+                            <input type="text" name="Recommendations" placeholder="Amount received on the Primary Market" required="required" />
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict Status</button>
+            </div>
+        </form>
+
+        {{ prediction_text }}
+    </div>
+</body>
+</html>
